@@ -89,19 +89,8 @@ export default {
         findMoviesById(id) {
             axios.get(`${baseUrl}/search-by-id?id=${id}`)
                 .then(response => {
-                    console.log(response.data)
-                    this.valueEdit.id = response.data.id;
-                    this.valueEdit.name = response.data.name;
-                    this.valueEdit.type = response.data.type;
-                    this.valueEdit.price = response.data.price;
-                    this.valueEdit.time = response.data.time;
-                    this.valueEdit.premireDate = response.data.premiereDate;
-                    this.valueEdit.description = response.data.description;
-                    this.valueEdit.statuss = response.data.statuss;
-                    this.valueEdit.tickets = response.data.tickets;
-                    this.valueEdit.production = response.data.production;
-                    this.valueEdit.director = response.data.director;
-                    this.valueEdit.actor = response.data.actor;
+                    this.valueEdit = response.data[0];
+
                 })
                 .catch(error => {
                     console.log(error);
