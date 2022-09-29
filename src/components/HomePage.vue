@@ -92,7 +92,7 @@
       <td>{{movie.time}}</td>
       <td>{{movie.premiereDate}}</td>
       <td>{{movie.description}}</td>
-      <td>{{movie.status}}</td>
+      <td>{{movie.statuss}}</td>
       <td>{{movie.tickets}}</td>
       <td>{{movie.production}}</td>
       <td>{{movie.director}}</td>

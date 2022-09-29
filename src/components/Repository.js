@@ -5,8 +5,7 @@ const baseUrl = 'http://localhost:8051/swagger-resources/smovie';
 export default {
     data() {
         return {
-            movies: [],
-            editMovies: []
+            movies: []
             , movie: {
                 id: '',
                 name: '',
@@ -15,7 +14,7 @@ export default {
                 time: '',
                 premiereDate: '',
                 description: '',
-                status: '',
+                statuss: '',
                 tickets: '',
                 production: '',
                 director: '',
@@ -30,7 +29,7 @@ export default {
                 time: '',
                 premiereDate: '',
                 description: '',
-                status: '',
+                statuss: '',
                 tickets: '',
                 production: '',
                 director: '',
@@ -44,7 +43,7 @@ export default {
                 time: '',
                 premiereDate: '',
                 description: '',
-                status: '',
+                statuss: '',
                 tickets: '',
                 production: '',
                 director: '',
@@ -88,7 +87,7 @@ export default {
                 })
         },
         findMoviesById(id) {
-            axios.get(`${baseUrl}/find-by-id?id=${id}`)
+            axios.get(`${baseUrl}/search-by-id?id=${id}`)
                 .then(response => {
                     console.log(response.data)
                     this.valueEdit.id = response.data.id;
@@ -98,7 +97,7 @@ export default {
                     this.valueEdit.time = response.data.time;
                     this.valueEdit.premireDate = response.data.premiereDate;
                     this.valueEdit.description = response.data.description;
-                    this.valueEdit.status = response.data.status;
+                    this.valueEdit.statuss = response.data.statuss;
                     this.valueEdit.tickets = response.data.tickets;
                     this.valueEdit.production = response.data.production;
                     this.valueEdit.director = response.data.director;
