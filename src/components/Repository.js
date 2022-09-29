@@ -13,7 +13,7 @@ export default {
                 type: '',
                 price: '',
                 time: '',
-                premireDate: '',
+                premiereDate: '',
                 description: '',
                 status: '',
                 tickets: '',
@@ -28,7 +28,21 @@ export default {
                 type: '',
                 price: '',
                 time: '',
-                premireDate: '',
+                premiereDate: '',
+                description: '',
+                status: '',
+                tickets: '',
+                production: '',
+                director: '',
+                actor: '',
+            },
+            valueAdd: {
+                id: '',
+                name: '',
+                type: '',
+                price: '',
+                time: '',
+                premiereDate: '',
                 description: '',
                 status: '',
                 tickets: '',
@@ -73,7 +87,7 @@ export default {
                     console.log(error);
                 })
         },
-        findMovies(id) {
+        findMoviesById(id) {
             axios.get(`${baseUrl}/find-by-id?id=${id}`)
                 .then(response => {
                     console.log(response.data)
@@ -82,7 +96,7 @@ export default {
                     this.valueEdit.type = response.data.type;
                     this.valueEdit.price = response.data.price;
                     this.valueEdit.time = response.data.time;
-                    this.valueEdit.premireDate = response.data.premireDate;
+                    this.valueEdit.premireDate = response.data.premiereDate;
                     this.valueEdit.description = response.data.description;
                     this.valueEdit.status = response.data.status;
                     this.valueEdit.tickets = response.data.tickets;
@@ -101,6 +115,17 @@ export default {
                     this.getAll();
                 })
                 .catch(error => {
+                    console.log(error);
+                })
+        },
+        addMovie() {
+            axios.post(`${baseUrl}/save`, this.valueAdd)
+                .then(response => {
+                    console.log(response)
+                    this.getAll();
+                })
+                .catch(error => {
+                    console.log(this.valueAdd)
                     console.log(error);
                 })
         }

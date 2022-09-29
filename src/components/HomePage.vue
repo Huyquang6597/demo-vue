@@ -59,7 +59,11 @@
 
 <!--<link rel="stylesheet" href="style.css">-->
 <template>
-
+  <button
+      type="button" class="btn btn-primary"
+      data-toggle="modal" data-target="#exampleModal1">
+    Add
+  </button>
 <div>
 
   <table class="table">
@@ -94,12 +98,12 @@
       <td>{{movie.director}}</td>
       <td>{{movie.actor}}</td>
       <td>
-        <button @click="findMovies(movie.id)"
+        <button @click="findMoviesById(movie.id)"
         type="button" class="btn btn-primary"
         data-toggle="modal" data-target = "#exampleModal">
           Edit
         </button>
-        <button @click="deleteMovie(movie.id)">Delete</button>
+        <button class="btn btn-danger" @click="deleteMovie(movie.id)">Delete</button>
       </td>
     </tr>
 <!--    <tr>-->
@@ -117,12 +121,9 @@
 
   <!----------------------------------------------------------------------------------------->
 <!--  -->
-<!--  &lt;!&ndash; Button trigger modal &ndash;&gt;-->
-<!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">-->
-<!--    Launch demo modal-->
-<!--  </button>-->
 
-  <!-- Modal -->
+
+  <!-- Edit Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -134,10 +135,9 @@
         </div>
         <div class="modal-body">
           <form>
-            <div class="form-control">
+            <div class="form-group">
               <label for="recipient-name" class="col-form-label">Id</label>
               <input type="text" class="form-control" id="recipient-name" v-model="valueEdit.id">
-              <label for="recipient-name" class="col-form-label">Name</label>
               <label for="exampleFormControlInput1">Name</label>
               <input type="text" class="form-control" v-model="valueEdit.name" >
               <label for="exampleFormControlInput1">Type</label>
@@ -166,7 +166,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" @click="updateMovie">Save changes</button>
         </div>
       </div>
     </div>
@@ -174,6 +174,57 @@
 
 
   <!----------------------------------------------------------------------------------------->
+
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Id</label>
+              <input type="text" class="form-control" v-model="valueAdd.id">
+              <label for="exampleFormControlInput1">Name</label>
+              <input type="text" class="form-control" v-model="valueAdd.name" >
+              <label for="exampleFormControlInput1">Type</label>
+              <input type="text" class="form-control" v-model="valueAdd.type" >
+              <label for="exampleFormControlInput1">Price</label>
+              <input type="text" class="form-control" v-model="valueAdd.price" >
+              <label for="exampleFormControlInput1">Time</label>
+              <input type="text" class="form-control" v-model="valueAdd.time" >
+              <label for="exampleFormControlInput1">Premiere Date</label>
+              <input type="text" class="form-control" v-model="valueAdd.premiereDate" >
+              <label for="exampleFormControlInput1">Description</label>
+              <input type="text" class="form-control" v-model="valueAdd.description" >
+              <label for="exampleFormControlInput1">Status</label>
+              <input type="text" class="form-control" v-model="valueAdd.status" >
+              <label for="exampleFormControlInput1">Tickets</label>
+              <input type="text" class="form-control" v-model="valueAdd.tickets" >
+              <label for="exampleFormControlInput1">Production</label>
+              <input type="text" class="form-control" v-model="valueAdd.production" >
+              <label for="exampleFormControlInput1">Director</label>
+              <input type="text" class="form-control" v-model="valueAdd.director" >
+              <label for="exampleFormControlInput1">Actor</label>
+              <input type="text" class="form-control" v-model="valueAdd.actor" >
+
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addMovie">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 
