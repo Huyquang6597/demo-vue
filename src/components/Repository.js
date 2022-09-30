@@ -110,10 +110,11 @@ export default {
             axios.post(`${baseUrl}/save`, this.valueAdd)
                 .then(response => {
                     console.log(response)
+                    console.log(this.valueAdd)
                     this.getAll();
                 })
                 .catch(error => {
-                    console.log(this.valueAdd)
+                    // console.log(this.valueAdd)
                     console.log(error);
                 })
         }

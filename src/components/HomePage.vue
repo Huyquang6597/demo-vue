@@ -204,7 +204,7 @@
               <label for="exampleFormControlInput1">Description</label>
               <input type="text" class="form-control" v-model="valueAdd.description" >
               <label for="exampleFormControlInput1">Status</label>
-              <input type="text" class="form-control" v-model="valueAdd.status" >
+              <input type="text" class="form-control" v-model="valueAdd.statuss" >
               <label for="exampleFormControlInput1">Tickets</label>
               <input type="text" class="form-control" v-model="valueAdd.tickets" >
               <label for="exampleFormControlInput1">Production</label>
