@@ -48,6 +48,20 @@ export default {
                 production: '',
                 director: '',
                 actor: '',
+            },
+            valueSearchs: {
+                id: '',
+                name: '',
+                typee: '',
+                price: '',
+                time: '',
+                premiereDate: '',
+                description: '',
+                statuss: '',
+                tickets: '',
+                production: '',
+                director: '',
+                actor: '',
             }
         }
     },
@@ -64,60 +78,60 @@ export default {
                 .catch(error => {
                     console.log(error);
                 })
-        }, methods: {
-            search() {
-                axios.get(baseUrl + '/find-any',)
-                    .then(response => {
-                        console.log(response)
-                        this.movies = response.data;
-                    })
-                    .catch(error => {
-                        console.log(error);
-                    })
-            }
         },
 
-        deleteMovie(id) {
-            axios.delete(`${baseUrl}/delete?id=${id}`)
-                .then(
-                    this.getAll()
-                )
+        findMoviesByAny() {
+            axios.post(`${baseUrl}/find-any`, this.valueSearchs)
+                .then(response => {
+                    console.log(response)
+                    this.movies = response.data.result;
+                })
                 .catch(error => {
                     console.log(error);
                 })
         },
-        findMoviesById(id) {
-            axios.get(`${baseUrl}/search-by-id?id=${id}`)
-                .then(response => {
-                    this.valueEdit = response.data[0];
 
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-        },
-        updateMovie() {
-            axios.put(`${baseUrl}/update`, this.valueEdit)
-                .then(response => {
-                    console.log(response)
-                    this.getAll();
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-        },
-        addMovie() {
-            axios.post(`${baseUrl}/save`, this.valueAdd)
-                .then(response => {
-                    console.log(response)
-                    console.log(this.valueAdd)
-                    this.getAll();
-                })
-                .catch(error => {
-                    // console.log(this.valueAdd)
-                    console.log(error);
-                })
-        }
-    }
+    deleteMovie(id) {
+        axios.delete(`${baseUrl}/delete?id=${id}`)
+            .then(
+                this.getAll()
+            )
+            .catch(error => {
+                console.log(error);
+            })
+    },
+    findMoviesById(id) {
+        axios.get(`${baseUrl}/search-by-id?id=${id}`)
+            .then(response => {
+                this.valueEdit = response.data[0];
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    },
+    updateMovie() {
+        axios.put(`${baseUrl}/update`, this.valueEdit)
+            .then(response => {
+                console.log(response)
+                this.getAll();
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    },
+    addMovie() {
+        axios.post(`${baseUrl}/save`, this.valueAdd)
+            .then(response => {
+                console.log(response)
+                console.log(this.valueAdd)
+                this.getAll();
+            })
+            .catch(error => {
+                // console.log(this.valueAdd)
+                console.log(error);
+            })
+    },
+}
 }
 
