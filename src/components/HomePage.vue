@@ -190,7 +190,7 @@
               <label for="exampleFormControlInput1">Name</label>
               <input type="text" class="form-control" v-model="valueSearchs.name">
               <label for="exampleFormControlInput1">Type</label>
-              <input type="text" class="form-control" v-model="valueSearchs.type">
+              <input type="text" class="form-control" v-model="valueSearchs.typee">
               <label for="exampleFormControlInput1">Price</label>
               <input type="text" class="form-control" v-model="valueSearchs.price">
               <label for="exampleFormControlInput1">Time</label>
