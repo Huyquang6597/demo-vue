@@ -62,6 +62,10 @@
   </div>
 
 
+
+
+
+
   <!----------------------------------------------------------------------------------------->
   <!--  -->
 
@@ -221,9 +225,34 @@
     </div>
   </div>
 
+<div class="content">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item ">
+        <a class="page-link" href="#" tabindex="-1" @click="setPage(this.page.page - 1)">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" @click="setPage(1)" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" @click="setPage(2)" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" @click="setPage(3)" href="#">3</a></li>
+      <li class="page-item"><a class="page-link" @click="setPage(4)" href="#">4</a></li>
+      <li class="page-item"><a class="page-link" @click="setPage(5)" href="#">5</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#" @click="setPage(this.page.page + 1)">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
 </template>
 
+
+<style scoped>
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 <script src="./Repository.js"></script>
 
 

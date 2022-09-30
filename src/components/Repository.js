@@ -62,6 +62,10 @@ export default {
                 production: '',
                 director: '',
                 actor: '',
+            },
+            page:{
+                page: 1,
+                size: 5,
             }
         }
     },
@@ -70,7 +74,7 @@ export default {
     },
     methods: {
         getAll() {
-            axios.get(baseUrl + '/get-all')
+            axios.get(`${baseUrl}/get-all?page=${this.page.page}&size=${this.page.size}`)
                 .then(response => {
                     console.log(response)
                     this.movies = response.data;
@@ -85,10 +89,18 @@ export default {
                 .then(response => {
                     console.log(response)
                     this.movies = response.data.result;
+
+
                 })
                 .catch(error => {
                     console.log(error);
                 })
+        },
+        setPage(page) {
+            if (page > 0) {
+                this.page.page = page;
+                this.getAll();
+            }
         },
 
     deleteMovie(id) {
