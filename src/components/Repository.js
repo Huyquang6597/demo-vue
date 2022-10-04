@@ -84,8 +84,20 @@ export default {
                 })
         },
 
-        findMoviesByAny() {
-            axios.post(`${baseUrl}/find-any`, this.valueSearchs)
+        // findMoviesByAny() {
+        //     axios.post(`${baseUrl}/find-any`, this.valueSearchs)
+        //         .then(response => {
+        //             console.log(response)
+        //             this.movies = response.data.result;
+        //
+        //
+        //         })
+        //         .catch(error => {
+        //             console.log(error);
+        //         })
+        // },
+        findMoviesByAny2() {
+            axios.post(`${baseUrl}/search`, this.valueSearchs)
                 .then(response => {
                     console.log(response)
                     this.movies = response.data.result;
@@ -96,6 +108,7 @@ export default {
                     console.log(error);
                 })
         },
+
         setPage(page) {
             if (page > 0) {
                 this.page.page = page;
