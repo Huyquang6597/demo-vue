@@ -83,8 +83,8 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Id</label>
-              <input type="text" class="form-control" id="recipient-name" v-model="valueEdit.id">
+<!--              <label for="recipient-name" class="col-form-label">Id</label>-->
+<!--              <input type="text" class="form-control" id="recipient-name" v-model="valueEdit.id">-->
               <label for="exampleFormControlInput1">Name</label>
               <input type="text" class="form-control" v-model="valueEdit.name">
               <label for="exampleFormControlInput1">Type</label>
@@ -128,7 +128,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel1">Thêm mới phim</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -136,36 +136,53 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Id</label>
-              <input type="text" class="form-control" v-model="valueAdd.id">
+<!--              <label for="recipient-name" class="col-form-label">Id</label>-->
+<!--              <input type="text" class="form-control" v-model="valueAdd.id">-->
               <label for="exampleFormControlInput1">Name</label>
-              <input type="text" class="form-control" v-model="valueAdd.name">
+              <input type="text" class="form-control" v-model="valueAdd.name" @blur="validate_name"  v-bind:class="{'is-invalid': errors.name}">
+              <div class="invalid-feedback" v-if="errors.name">{{ errors.name }}</div>
+
               <label for="exampleFormControlInput1">Type</label>
-              <input type="text" class="form-control" v-model="valueAdd.type">
+              <input type="text" class="form-control" v-model="valueAdd.typee" @blur="validate_type" v-bind:class="{'is-invalid': errors.typee}">
+              <div class="invalid-feedback" v-if="errors.typee">{{ errors.typee }}</div>
+
               <label for="exampleFormControlInput1">Price</label>
-              <input type="text" class="form-control" v-model="valueAdd.price">
+              <input type="number" class="form-control" v-model="valueAdd.price" @blur="validate_price" v-bind:class="{'is-invalid': errors.price}">
+              <div class="invalid-feedback" v-if="errors.price">{{ errors.price }}</div>
+
               <label for="exampleFormControlInput1">Time</label>
               <input type="text" class="form-control" v-model="valueAdd.time">
+
               <label for="exampleFormControlInput1">Premiere Date</label>
               <input type="text" class="form-control" v-model="valueAdd.premiereDate">
+
               <label for="exampleFormControlInput1">Description</label>
-              <input type="text" class="form-control" v-model="valueAdd.description">
+              <input type="text" class="form-control" v-model="valueAdd.description" @blur="validate_description" v-bind:class="{'is-invalid': errors.description}">
+              <div class="invalid-feedback" v-if="errors.description">{{ errors.description }}</div>
+
               <label for="exampleFormControlInput1">Status</label>
-              <input type="text" class="form-control" v-model="valueAdd.statuss">
+              <input type="number" class="form-control" v-model="valueAdd.statuss">
+
               <label for="exampleFormControlInput1">Tickets</label>
-              <input type="text" class="form-control" v-model="valueAdd.tickets">
+              <input type="number" class="form-control" v-model="valueAdd.tickets">
+
               <label for="exampleFormControlInput1">Production</label>
-              <input type="text" class="form-control" v-model="valueAdd.production">
+              <input type="text" class="form-control" v-model="valueAdd.production" @blur="validate_production" v-bind:class="{'is-invalid': errors.production}">
+              <div class="invalid-feedback" v-if="errors.production">{{ errors.production }}</div>
+
               <label for="exampleFormControlInput1">Director</label>
-              <input type="text" class="form-control" v-model="valueAdd.director">
+              <input type="text" class="form-control" v-model="valueAdd.director" @blur="validate_director" v-bind:class="{'is-invalid': errors.director}">
+              <div class="invalid-feedback" v-if="errors.director">{{ errors.director }}</div>
+
               <label for="exampleFormControlInput1">Actor</label>
-              <input type="text" class="form-control" v-model="valueAdd.actor">
+              <input type="text" class="form-control" v-model="valueAdd.actor" @blur="validate_actor" v-bind:class="{'is-invalid': errors.actor}">
+              <div class="invalid-feedback" v-if="errors.actor">{{ errors.actor }}</div>
 
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="resetForm">Close</button>
           <button type="button" class="btn btn-primary" data-dismiss="modal" @click="addMovie">Add</button>
         </div>
       </div>
@@ -189,8 +206,8 @@
         <div class="modal-body">
           <form>
             <div class="form-group">
-              <label for="recipient-name" class="col-form-label">Id</label>
-              <input type="text" class="form-control" v-model="valueSearchs.id">
+<!--              <label for="recipient-name" class="col-form-label">Id</label>-->
+<!--              <input type="text" class="form-control" v-model="valueSearchs.id">-->
               <label for="exampleFormControlInput1">Name</label>
               <input type="text" class="form-control" v-model="valueSearchs.name">
               <label for="exampleFormControlInput1">Type</label>

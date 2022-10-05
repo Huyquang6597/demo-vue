@@ -22,6 +22,22 @@ export default {
                 actor: '',
 
             },
+
+            errors:{
+            id: '',
+            name: '',
+            type: '',
+            price: '',
+            time: '',
+            premiereDate: '',
+            description: '',
+            statuss: '',
+            tickets: '',
+            production: '',
+            director: '',
+            actor: ''
+            },
+
             valueEdit: {
                 id: '',
                 name: '',
@@ -168,11 +184,15 @@ export default {
         },
 
         addMovie() {
+
             axios.post(`${baseUrl}/save`, this.valueAdd)
                 .then(response => {
                     console.log(response)
                     console.log(this.valueAdd)
+                    this.showMessage('success', 'Create!', 'Tạo mới thành công');
                     this.getAll();
+                    this.resetForm();
+
                 })
                 .catch(error => {
                     // console.log(this.valueAdd)
@@ -180,9 +200,14 @@ export default {
                 })
         },
 
+
+
+
+        // Validate Form
+
         validate_name() {
             this.errors.name = ''
-            if (!this.movies.name) {
+            if (!this.valueAdd.name) {
                 this.errors.name = 'Tên phim không được để trống'
                 return false
             }
@@ -191,11 +216,11 @@ export default {
 
         validate_price() {
             this.errors.price = ''
-            if (!this.movies.price) {
+            if (!this.valueAdd.price) {
                 this.errors.price = 'Giá vé xem phim không được để trống'
                 return false
             }
-            if (this.movies.price < 0) {
+            if (this.valueAdd.price < 0) {
                 this.errors.price = 'Giá vé xem phim không được âm'
                 return false
             }
@@ -204,7 +229,7 @@ export default {
 
         validate_description() {
             this.errors.description = ''
-            if (!this.movies.description) {
+            if (!this.valueAdd.description) {
                 this.errors.description = 'Mô tả phim không được để trống'
                 return false
             }
@@ -213,7 +238,7 @@ export default {
 
         validate_type() {
             this.errors.typee = ''
-            if (!this.movies.typee) {
+            if (!this.valueAdd.typee) {
                 this.errors.typee = 'Thể loại phim không được để trống'
                 return false
             }
@@ -221,7 +246,7 @@ export default {
 
         validate_production() {
             this.errors.production = ''
-            if (!this.movies.production) {
+            if (!this.valueAdd.production) {
                 this.errors.production = 'Hãng phim không được để trống'
                 return false
             }
@@ -229,15 +254,15 @@ export default {
 
         validate_director() {
             this.errors.director = ''
-            if (!this.movies.director) {
-                this.errors.director = 'Giám đốc sản xuất phim không được để trống'
+            if (!this.valueAdd.director) {
+                this.errors.director = 'Giám đốc sản xuất không được để trống'
                 return false
             }
         },
 
         validate_actor() {
             this.errors.actor = ''
-            if (!this.movies.actor) {
+            if (!this.valueAdd.actor) {
                 this.errors.actor = 'Diễn viên không được để trống'
                 return false
             }
@@ -273,33 +298,33 @@ export default {
         },
 
         resetForm() {
-            this.movies = {
-                id: '',
-                name: '',
-                type: '',
-                price: '',
-                time: '',
-                premiereDate: '',
-                description: '',
-                statuss: '',
-                tickets: '',
-                production: '',
-                director: '',
-                actor: '',
+            this.valueAdd = {
+                id:'',
+                name:'',
+                type:'',
+                price:'',
+                time:'',
+                premiereDate:'',
+                description:'',
+                statuss:'',
+                tickets:'',
+                production:'',
+                director:'',
+                actor:'',
             }
             this.errors = {
-                id: '',
-                name: '',
-                type: '',
-                price: '',
-                time: '',
-                premiereDate: '',
-                description: '',
-                statuss: '',
-                tickets: '',
-                production: '',
-                director: '',
-                actor: '',
+                id:'',
+                name:'',
+                type:'',
+                price:'',
+                time:'',
+                premiereDate:'',
+                description:'',
+                statuss:'',
+                tickets:'',
+                production:'',
+                director:'',
+                actor:'',
             }
         },
 
