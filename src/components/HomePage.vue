@@ -5,7 +5,7 @@
     <form class="form-search" >
       <div class="form-left">
         <div><label for="exampleFormControlInput1">Name</label>
-          <input type="text"  v-model="valueSearchs.name"></div>
+          <input type="text"  v-model="valueSearchs.name" ></div>
         <div><label for="exampleFormControlInput1">Type</label>
           <input type="text"  v-model="valueSearchs.typee"></div>
         <div> <label for="exampleFormControlInput1">Price</label>
@@ -127,43 +127,43 @@
 <!--              <label for="recipient-name" class="col-form-label">Id</label>-->
 <!--              <input type="text" class="form-control" id="recipient-name" v-model="valueEdit.id">-->
               <label for="exampleFormControlInput1">Name</label>
-              <input type="text" class="form-control" v-model="valueEdit.name" @blur="validate_name"  v-bind:class="{'is-invalid': errors.name}">
+              <input type="text" class="form-control" v-model="valueAdd.name" @blur="validate_name"  v-bind:class="{'is-invalid': errors.name}">
               <div class="invalid-feedback" v-if="errors.name">{{ errors.name }}</div>
 
               <label for="exampleFormControlInput1">Type</label>
-              <input type="text" class="form-control" v-model="valueEdit.type" @blur="validate_type" v-bind:class="{'is-invalid': errors.type}">
+              <input type="text" class="form-control" v-model="valueAdd.type" @blur="validate_type" v-bind:class="{'is-invalid': errors.type}">
               <div class="invalid-feedback" v-if="errors.type">{{ errors.type }}</div>
 
               <label for="exampleFormControlInput1">Price</label>
-              <input type="number" class="form-control" v-model="valueEdit.price" @blur="validate_price" v-bind:class="{'is-invalid': errors.price}">
+              <input type="number" class="form-control" v-model="valueAdd.price" @blur="validate_price" v-bind:class="{'is-invalid': errors.price}">
               <div class="invalid-feedback" v-if="errors.price">{{ errors.price }}</div>
 
               <label for="exampleFormControlInput1">Time</label>
-              <input type="text" class="form-control" v-model="valueEdit.time">
+              <input type="text" class="form-control" v-model="valueAdd.time">
 
               <label for="exampleFormControlInput1">Premiere Date</label>
-              <input type="text" class="form-control" v-model="valueEdit.premiereDate">
+              <input type="text" class="form-control" v-model="valueAdd.premiereDate">
 
               <label for="exampleFormControlInput1">Description</label>
-              <input type="text" class="form-control" v-model="valueEdit.description" @blur="validate_description" v-bind:class="{'is-invalid': errors.description}">
+              <input type="text" class="form-control" v-model="valueAdd.description" @blur="validate_description" v-bind:class="{'is-invalid': errors.description}">
               <div class="invalid-feedback" v-if="errors.description">{{ errors.description }}</div>
 
               <label for="exampleFormControlInput1">Status</label>
-              <input type="number" class="form-control" v-model="valueEdit.statuss">
+              <input type="number" class="form-control" v-model="valueAdd.statuss">
 
               <label for="exampleFormControlInput1">Tickets</label>
-              <input type="number" class="form-control" v-model="valueEdit.tickets">
+              <input type="number" class="form-control" v-model="valueAdd.tickets">
 
               <label for="exampleFormControlInput1">Production</label>
-              <input type="text" class="form-control" v-model="valueEdit.production" @blur="validate_production" v-bind:class="{'is-invalid': errors.production}">
+              <input type="text" class="form-control" v-model="valueAdd.production" @blur="validate_production" v-bind:class="{'is-invalid': errors.production}">
               <div class="invalid-feedback" v-if="errors.production">{{ errors.production }}</div>
 
               <label for="exampleFormControlInput1">Director</label>
-              <input type="text" class="form-control" v-model="valueEdit.director" @blur="validate_director" v-bind:class="{'is-invalid': errors.director}">
+              <input type="text" class="form-control" v-model="valueAdd.director" @blur="validate_director" v-bind:class="{'is-invalid': errors.director}">
               <div class="invalid-feedback" v-if="errors.director">{{ errors.director }}</div>
 
               <label for="exampleFormControlInput1">Actor</label>
-              <input type="text" class="form-control" v-model="valueEdit.actor" @blur="validate_actor" v-bind:class="{'is-invalid': errors.actor}">
+              <input type="text" class="form-control" v-model="valueAdd.actor" @blur="validate_actor" v-bind:class="{'is-invalid': errors.actor}">
               <div class="invalid-feedback" v-if="errors.actor">{{ errors.actor }}</div>
 
 

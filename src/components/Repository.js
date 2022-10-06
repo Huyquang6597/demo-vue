@@ -165,7 +165,7 @@ export default {
         findMoviesById(id) {
             axios.get(`${baseUrl}/search-by-id?id=${id}`)
                 .then(response => {
-                    this.valueEdit = response.data[0];
+                    this.valueAdd = response.data[0];
 
                 })
                 .catch(error => {
@@ -175,18 +175,18 @@ export default {
 
         updateMovie() {
             axios.put(`${baseUrl}/update`, {
-                id: this.valueEdit.id,
-                name: this.valueEdit.name,
-                type: this.valueEdit.type,
-                price: this.valueEdit.price,
-                time: this.valueEdit.time,
-                premiereDate: this.valueEdit.premiereDate,
-                description: this.valueEdit.description,
-                statuss: this.valueEdit.statuss,
-                tickets: this.valueEdit.tickets,
-                production: this.valueEdit.production,
-                director: this.valueEdit.director,
-                actor: this.valueEdit.actor,
+                id: this.valueAdd.id,
+                name: this.valueAdd.name,
+                type: this.valueAdd.type,
+                price: this.valueAdd.price,
+                time: this.valueAdd.time,
+                premiereDate: this.valueAdd.premiereDate,
+                description: this.valueAdd.description,
+                statuss: this.valueAdd.statuss,
+                tickets: this.valueAdd.tickets,
+                production: this.valueAdd.production,
+                director: this.valueAdd.director,
+                actor: this.valueAdd.actor,
             })
                 .then(response => {
                     console.log(response)
